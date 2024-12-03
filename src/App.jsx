@@ -32,7 +32,12 @@ function App() {
         </form>
 
         <ul className="mt-3">
-          {articles.map}
+          {articles.map((article, index) => (
+            <li key={index}>
+              {article}
+              <button onClick={() => handleDelete(index)}>🗑️</button>
+            </li>
+          ))}
         </ul>
       </div>
     </>
