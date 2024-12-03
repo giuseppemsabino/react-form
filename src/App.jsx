@@ -10,17 +10,30 @@ function App() {
   }
 
   const handleFormSubmit = (e) => {
-    
+    e.preventDefault();
+    if (myValue.trim()) {
+      setArticles([...articles, myValue]); // Aggiunge l'articolo alla lista
+      setMyValue(""); // Resetta l'input
+    }
   }
+  const handleDelete = (index) => {
+    const newArticles = [...articles]; 
+    newArticles.splice(index, 1); 
+    setArticles(newArticles);
+  };
 
   return (
     <>
       <div className="container">
         <h1 className="mt-5">Hello world</h1>
         <form onSubmit={handleFormSubmit}>
-          <input type="text" value={myValue} onChange={handleInputChange} />
-          <button>Invia</button>
+          <input type="text" value={myValue} onChange={handleInputChange} placeholder="inserici l'articolo"/>
+          <button type='submit'>Invia</button>
         </form>
+
+        <ul className="mt-3">
+          {articles.map}
+        </ul>
       </div>
     </>
   )
